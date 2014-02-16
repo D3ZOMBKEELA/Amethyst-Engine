@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test Game", "Test Game\Test Game.vcxproj", "{BD026908-25CA-43CD-9D4E-057EBE780C80}"
+	ProjectSection(ProjectDependencies) = postProject
+		{250B4E1B-C1FF-4840-A953-DAEE5CA4974B} = {250B4E1B-C1FF-4840-A953-DAEE5CA4974B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Amethyst Engine", "Amethyst Engine\Amethyst Engine.vcxproj", "{250B4E1B-C1FF-4840-A953-DAEE5CA4974B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD026908-25CA-43CD-9D4E-057EBE780C80}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BD026908-25CA-43CD-9D4E-057EBE780C80}.Debug|Win32.Build.0 = Debug|Win32
+		{BD026908-25CA-43CD-9D4E-057EBE780C80}.Release|Win32.ActiveCfg = Release|Win32
+		{BD026908-25CA-43CD-9D4E-057EBE780C80}.Release|Win32.Build.0 = Release|Win32
+		{250B4E1B-C1FF-4840-A953-DAEE5CA4974B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{250B4E1B-C1FF-4840-A953-DAEE5CA4974B}.Debug|Win32.Build.0 = Debug|Win32
+		{250B4E1B-C1FF-4840-A953-DAEE5CA4974B}.Release|Win32.ActiveCfg = Release|Win32
+		{250B4E1B-C1FF-4840-A953-DAEE5CA4974B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
