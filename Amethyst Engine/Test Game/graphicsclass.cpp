@@ -4,9 +4,8 @@ GraphicsClass::GraphicsClass()
 {
 	m_D3D = 0;
 	m_Camera = 0;
-	m_Model = 0;
-	m_SpecularLightShader = 0;
-	m_SpecularLight = 0;
+	m_TextureShader = 0;
+	m_Bitmap = 0;
 }
 
 GraphicsClass::GraphicsClass(const GraphicsClass& other)
@@ -30,7 +29,7 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	result = m_D3D->Initialize(screenWidth, screenHeight, VSYNC_ENABLED, hwnd, FULL_SCREEN, SCREEN_DEPTH, SCREEN_NEAR);
 	if(!result)
 	{
-		MessageBox(hwnd, L"Cloud not initialize Direct3D.", L"Error", MB_OK);
+		MessageBox(hwnd, L"Could not initialize Direct3D.", L"Error", MB_OK);
 		return false;
 	}
 
@@ -42,67 +41,49 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 
 	m_Camera->SetPosition(0.0F, 0.0F, -10.0F);
 
-	m_Model = new ModelClass;
-	if(!m_Model)
+	m_TextureShader = new TextureShaderClass;
+	if(!m_TextureShader)
 	{
 		return false;
 	}
 
-	result = m_Model->Initialize(m_D3D->GetDevice(), "../Test Game/data/cube.txt", L"../Test Game/data/rockz.dds");
+	result = m_TextureShader->Initialize(m_D3D->GetDevice(), hwnd);
 	if(!result)
 	{
-		MessageBox(hwnd, L"Could not intialize the model object.", L"Error", MB_OK);
+		MessageBox(hwnd, L"Could not initialize the texture shader object.", L"Error", MB_OK);
 		return false;
 	}
 
-	m_SpecularLightShader = new SpecularLightShaderClass;
-	if(!m_SpecularLightShader)
+	m_Bitmap = new BitmapClass;
+	if(!m_Bitmap)
 	{
 		return false;
 	}
 
-	result = m_SpecularLightShader->Initialize(m_D3D->GetDevice(), hwnd);
+	result = m_Bitmap->Initialize(m_D3D->GetDevice(), screenWidth, screenHeight, L"../Test Game/data/seafloor.dds", 256, 256);
 	if(!result)
 	{
-		MessageBox(hwnd, L"Could not initialize the diffuse light shader object.", L"Error", MB_OK);
+		MessageBox(hwnd, L"Could not initialize the bitmap object.", L"Error", MB_OK);
 		return false;
 	}
-
-	m_SpecularLight = new SpecularLightClass;
-	if(!m_SpecularLight)
-	{
-		return false;
-	}
-
-	m_SpecularLight->SetAmbientColor(0.15F, 0.15F, 0.15F, 1.0F);
-	m_SpecularLight->SetDiffuseColor(1.0F, 1.0F, 1.0F, 1.0F);
-	m_SpecularLight->SetDirection(0.0F, 0.0F, 1.0F);
-	m_SpecularLight->SetSpecularColor(1.0F, 1.0F, 1.0F, 1.0F);
-	m_SpecularLight->SetSpecularPower(32.0F);
 
 	return true;
 }
 
 void GraphicsClass::Shutdown()
 {
-	if(m_SpecularLight)
+	if(m_Bitmap)
 	{
-		delete m_SpecularLight;
-		m_SpecularLight = 0;
+		m_Bitmap->Shutdown();
+		delete m_Bitmap;
+		m_Bitmap = 0;
 	}
 
-	if(m_SpecularLightShader)
+	if(m_TextureShader)
 	{
-		m_SpecularLightShader->Shutdown();
-		delete m_SpecularLightShader;
-		m_SpecularLightShader = 0;
-	}
-
-	if(m_Model)
-	{
-		m_Model->Shutdown();
-		delete m_Model;
-		m_Model = 0;
+		m_TextureShader->Shutdown();
+		delete m_TextureShader;
+		m_TextureShader = 0;
 	}
 
 	if(m_Camera)
@@ -144,7 +125,8 @@ bool GraphicsClass::Frame()
 
 bool GraphicsClass::Render(float rotation)
 {
-	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix;
+	D3DXMATRIX viewMatrix, projectionMatrix, worldMatrix, orthoMatrix;
+	bool result;
 
 	m_D3D->BeginScene(0.0F, 0.0F, 0.0F, 1.0F);
 
@@ -153,12 +135,19 @@ bool GraphicsClass::Render(float rotation)
 	m_Camera->GetViewMatrix(viewMatrix);
 	m_D3D->GetWorldMatrix(worldMatrix);
 	m_D3D->GetProjectionMatrix(projectionMatrix);
+	m_D3D->GetOrthoMatrix(orthoMatrix);
 
-	D3DXMatrixRotationY(&worldMatrix, rotation);
+	m_D3D->TurnZBufferOff(); // GOOD
 
-	m_Model->Render(m_D3D->GetDevice());
+	result = m_Bitmap->Render(m_D3D->GetDevice(), 100, 100);
+	if(!result)
+	{
+		return false;
+	}
 
-	m_SpecularLightShader->Render(m_D3D->GetDevice(), m_Model->GetIndexCount(), worldMatrix, viewMatrix, projectionMatrix, m_Model->GetTexture(), m_SpecularLight->GetDirection(), m_SpecularLight->GetAmbientColor(), m_SpecularLight->GetDiffuseColor(), m_Camera->GetPosition(), m_SpecularLight->GetSpecularColor(), m_SpecularLight->GetSpecularPower());
+	m_TextureShader->Render(m_D3D->GetDevice(), m_Bitmap->GetIndexCount(), worldMatrix, viewMatrix, orthoMatrix, m_Bitmap->GetTexture());
+
+	m_D3D->TurnZBufferOn();
 
 	m_D3D->EndScene();
 

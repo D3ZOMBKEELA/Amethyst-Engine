@@ -3,9 +3,8 @@
 
 #include "d3dclass.h"
 #include "cameraclass.h"
-#include "modelclass.h"
-#include "specularlightshaderclass.h"
-#include "specularlightclass.h"
+#include "textureshaderclass.h"
+#include "bitmapclass.h"
 
 const bool FULL_SCREEN = false;
 const bool VSYNC_ENABLED = true;
@@ -29,9 +28,8 @@ private:
 private:
 	D3DClass *m_D3D;
 	CameraClass *m_Camera;
-	ModelClass *m_Model;
-	SpecularLightShaderClass *m_SpecularLightShader;
-	SpecularLightClass *m_SpecularLight;
+	TextureShaderClass *m_TextureShader;
+	BitmapClass *m_Bitmap;
 };
 
 #endif

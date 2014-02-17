@@ -1,5 +1,5 @@
-﻿Build started 16/02/2014 2:42:46 PM.
-     1>Project "C:\Users\Tylar\documents\visual studio 2010\Projects\Amethyst Engine\Test Game\Test Game.vcxproj" on node 2 (build target(s)).
+﻿Build started 17/02/2014 5:05:07 PM.
+     1>Project "C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Test Game\Test Game.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Test Game.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
@@ -7,23 +7,23 @@
        ManifestResourceCompile:
          All outputs are up-to-date.
        Link:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Tylar\documents\visual studio 2010\Projects\Amethyst Engine\Debug\Test Game.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Test Game.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Tylar\documents\visual studio 2010\Projects\Amethyst Engine\Debug\Test Game.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Tylar\documents\visual studio 2010\Projects\Amethyst Engine\Debug\Test Game.lib" /MACHINE:X86 "Debug\Test Game.exe.embed.manifest.res"
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Debug\Test Game.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Test Game.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Debug\Test Game.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Debug\Test Game.lib" /MACHINE:X86 "Debug\Test Game.exe.embed.manifest.res"
          Debug\graphicsclass.obj
          Debug\inputclass.obj
          Debug\main.obj
          Debug\systemclass.obj
-         "C:\Users\Tylar\documents\visual studio 2010\Projects\Amethyst Engine\Debug\Amethyst Engine.lib"
+         "C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Debug\Amethyst Engine.lib"
        Manifest:
          C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Test Game.exe.embed.manifest" /manifest "Debug\Test Game.exe.intermediate.manifest"
          All outputs are up-to-date.
        LinkEmbedManifest:
          All outputs are up-to-date.
-         Test Game.vcxproj -> C:\Users\Tylar\documents\visual studio 2010\Projects\Amethyst Engine\Debug\Test Game.exe
+         Test Game.vcxproj -> C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Debug\Test Game.exe
        FinalizeBuildStatus:
          Deleting file "Debug\Test Game.unsuccessfulbuild".
          Touching "Debug\Test Game.lastbuildstate".
-     1>Done Building Project "C:\Users\Tylar\documents\visual studio 2010\Projects\Amethyst Engine\Test Game\Test Game.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Test Game\Test Game.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.04
+Time Elapsed 00:00:00.88
