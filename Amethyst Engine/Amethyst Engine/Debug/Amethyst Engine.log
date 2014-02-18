@@ -1,10 +1,11 @@
-﻿Build started 17/02/2014 5:05:05 PM.
+﻿Build started 18/02/2014 4:54:52 PM.
      1>Project "C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Amethyst Engine\Amethyst Engine.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Amethyst Engine.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt d3dclass.cpp
-         d3dclass.cpp
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt fontclass.cpp
+         fontclass.cpp
+     1>c:\users\tylar\documents\amethyst-engine\amethyst engine\amethyst engine\fontclass.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
        Lib:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Debug\Amethyst Engine.lib" /NOLOGO Debug\ambientlightclass.obj
          Debug\ambientlightshaderclass.obj
@@ -14,9 +15,12 @@
          Debug\d3dclass.obj
          Debug\diffuselightclass.obj
          Debug\diffuselightshaderclass.obj
+         Debug\fontclass.obj
+         Debug\fontshaderclass.obj
          Debug\modelclass.obj
          Debug\specularlightclass.obj
          Debug\specularlightshaderclass.obj
+         Debug\textclass.obj
          Debug\textureclass.obj
          Debug\textureshaderclass.obj
          Amethyst Engine.vcxproj -> C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Debug\Amethyst Engine.lib
@@ -27,4 +31,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.15
+Time Elapsed 00:00:02.15

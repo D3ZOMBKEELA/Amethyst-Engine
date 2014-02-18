@@ -57,6 +57,15 @@
     <ClInclude Include="bitmapclass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="fontclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fontshaderclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="textclass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="d3dclass.cpp">
@@ -98,6 +107,15 @@
     <ClCompile Include="bitmapclass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="fontclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="fontshaderclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="textclass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="color.fx">
@@ -113,6 +131,9 @@
       <Filter>Shader Files</Filter>
     </None>
     <None Include="specularlight.fx">
+      <Filter>Shader Files</Filter>
+    </None>
+    <None Include="font.fx">
       <Filter>Shader Files</Filter>
     </None>
   </ItemGroup>

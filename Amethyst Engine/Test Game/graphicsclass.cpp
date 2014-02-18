@@ -4,8 +4,7 @@ GraphicsClass::GraphicsClass()
 {
 	m_D3D = 0;
 	m_Camera = 0;
-	m_TextureShader = 0;
-	m_Bitmap = 0;
+	m_Text = 0;
 }
 
 GraphicsClass::GraphicsClass(const GraphicsClass& other)
@@ -19,6 +18,7 @@ GraphicsClass::~GraphicsClass()
 bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 {
 	bool result;
+	D3DXMATRIX baseViewMatrix;
 
 	m_D3D = new D3DClass;
 	if(!m_D3D)
@@ -40,30 +40,19 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 	}
 
 	m_Camera->SetPosition(0.0F, 0.0F, -10.0F);
+	m_Camera->Render();
+	m_Camera->GetViewMatrix(baseViewMatrix);
 
-	m_TextureShader = new TextureShaderClass;
-	if(!m_TextureShader)
+	m_Text = new TextClass;
+	if(!m_Text)
 	{
 		return false;
 	}
 
-	result = m_TextureShader->Initialize(m_D3D->GetDevice(), hwnd);
+	result = m_Text->Initialize(m_D3D->GetDevice(), hwnd, screenWidth, screenHeight, baseViewMatrix);
 	if(!result)
 	{
-		MessageBox(hwnd, L"Could not initialize the texture shader object.", L"Error", MB_OK);
-		return false;
-	}
-
-	m_Bitmap = new BitmapClass;
-	if(!m_Bitmap)
-	{
-		return false;
-	}
-
-	result = m_Bitmap->Initialize(m_D3D->GetDevice(), screenWidth, screenHeight, L"../Test Game/data/seafloor.dds", 256, 256);
-	if(!result)
-	{
-		MessageBox(hwnd, L"Could not initialize the bitmap object.", L"Error", MB_OK);
+		MessageBox(hwnd, L"Could not initialize the text object.", L"Error", MB_OK);
 		return false;
 	}
 
@@ -72,18 +61,11 @@ bool GraphicsClass::Initialize(int screenWidth, int screenHeight, HWND hwnd)
 
 void GraphicsClass::Shutdown()
 {
-	if(m_Bitmap)
+	if(m_Text)
 	{
-		m_Bitmap->Shutdown();
-		delete m_Bitmap;
-		m_Bitmap = 0;
-	}
-
-	if(m_TextureShader)
-	{
-		m_TextureShader->Shutdown();
-		delete m_TextureShader;
-		m_TextureShader = 0;
+		m_Text->Shutdown();
+		delete m_Text;
+		m_Text = 0;
 	}
 
 	if(m_Camera)
@@ -137,15 +119,9 @@ bool GraphicsClass::Render(float rotation)
 	m_D3D->GetProjectionMatrix(projectionMatrix);
 	m_D3D->GetOrthoMatrix(orthoMatrix);
 
-	m_D3D->TurnZBufferOff(); // GOOD
+	m_D3D->TurnZBufferOff();
 
-	result = m_Bitmap->Render(m_D3D->GetDevice(), 100, 100);
-	if(!result)
-	{
-		return false;
-	}
-
-	m_TextureShader->Render(m_D3D->GetDevice(), m_Bitmap->GetIndexCount(), worldMatrix, viewMatrix, orthoMatrix, m_Bitmap->GetTexture());
+	m_Text->Render(m_D3D->GetDevice(), worldMatrix, orthoMatrix);
 
 	m_D3D->TurnZBufferOn();
 

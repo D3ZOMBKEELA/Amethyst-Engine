@@ -19,9 +19,12 @@
     <ClInclude Include="d3dclass.h" />
     <ClInclude Include="diffuselightclass.h" />
     <ClInclude Include="diffuselightshaderclass.h" />
+    <ClInclude Include="fontclass.h" />
+    <ClInclude Include="fontshaderclass.h" />
     <ClInclude Include="modelclass.h" />
     <ClInclude Include="specularlightclass.h" />
     <ClInclude Include="specularlightshaderclass.h" />
+    <ClInclude Include="textclass.h" />
     <ClInclude Include="textureclass.h" />
     <ClInclude Include="textureshaderclass.h" />
   </ItemGroup>
@@ -34,9 +37,12 @@
     <ClCompile Include="d3dclass.cpp" />
     <ClCompile Include="diffuselightclass.cpp" />
     <ClCompile Include="diffuselightshaderclass.cpp" />
+    <ClCompile Include="fontclass.cpp" />
+    <ClCompile Include="fontshaderclass.cpp" />
     <ClCompile Include="modelclass.cpp" />
     <ClCompile Include="specularlightclass.cpp" />
     <ClCompile Include="specularlightshaderclass.cpp" />
+    <ClCompile Include="textclass.cpp" />
     <ClCompile Include="textureclass.cpp" />
     <ClCompile Include="textureshaderclass.cpp" />
   </ItemGroup>
@@ -44,6 +50,7 @@
     <None Include="ambientlight.fx" />
     <None Include="color.fx" />
     <None Include="diffuselight.fx" />
+    <None Include="font.fx" />
     <None Include="specularlight.fx" />
     <None Include="texture.fx" />
   </ItemGroup>
