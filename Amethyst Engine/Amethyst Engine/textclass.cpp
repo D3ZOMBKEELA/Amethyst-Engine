@@ -109,6 +109,35 @@ void TextClass::Render(ID3D10Device *device, D3DXMATRIX worldMatrix, D3DXMATRIX 
 	return;
 }
 
+bool TextClass::SetMousePosition(int mouseX, int mouseY)
+{
+	char tempString[16];
+	char mouseString[16];
+	bool result;
+
+	_itoa_s(mouseX, tempString, 10);
+
+	strcpy_s(mouseString, "Mouse X: ");
+	strcat_s(mouseString, tempString);
+
+	result = UpdateSentence(h_sentence1, mouseString, 20, 20, 1.0F, 1.0F, 1.0F);
+	if(!result)
+	{
+		return false;
+	}
+
+	_itoa_s(mouseY, tempString, 10);
+
+	strcpy_s(mouseString, "Mouse Y: ");
+	strcat_s(mouseString, tempString);
+
+	result = UpdateSentence(h_sentence2, mouseString, 20, 40, 1.0F, 1.0F, 1.0F);
+	if(!result)
+	{
+		return false;
+	}
+}
+
 bool TextClass::InitializeSentence(SentenceType** sentence, int maxLength, ID3D10Device *device)
 {
 	VertexType *vertices;
