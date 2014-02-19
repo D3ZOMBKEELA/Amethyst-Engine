@@ -1,12 +1,10 @@
-﻿Build started 18/02/2014 8:19:20 PM.
+﻿Build started 19/02/2014 5:14:43 PM.
      1>Project "C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Amethyst Engine\Amethyst Engine.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\Amethyst Engine.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\Amethyst Engine.unsuccessfulbuild".
        ClCompile:
-         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt textclass.cpp
-         textclass.cpp
-     1>c:\users\tylar\documents\amethyst-engine\amethyst engine\amethyst engine\fontclass.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\users\tylar\documents\amethyst-engine\amethyst engine\amethyst engine\textclass.cpp(139): warning C4715: 'TextClass::SetMousePosition' : not all control paths return a value
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt soundclass.cpp
+         soundclass.cpp
        Lib:
          c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"C:\Users\Tylar\Documents\Amethyst-Engine\Amethyst Engine\Debug\Amethyst Engine.lib" /NOLOGO Debug\ambientlightclass.obj
          Debug\ambientlightshaderclass.obj
@@ -19,6 +17,7 @@
          Debug\fontclass.obj
          Debug\fontshaderclass.obj
          Debug\modelclass.obj
+         Debug\soundclass.obj
          Debug\specularlightclass.obj
          Debug\specularlightshaderclass.obj
          Debug\textclass.obj
@@ -32,4 +31,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:05.01
+Time Elapsed 00:00:01.06

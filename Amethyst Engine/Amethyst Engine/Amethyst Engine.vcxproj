@@ -22,6 +22,7 @@
     <ClInclude Include="fontclass.h" />
     <ClInclude Include="fontshaderclass.h" />
     <ClInclude Include="modelclass.h" />
+    <ClInclude Include="soundclass.h" />
     <ClInclude Include="specularlightclass.h" />
     <ClInclude Include="specularlightshaderclass.h" />
     <ClInclude Include="textclass.h" />
@@ -40,6 +41,7 @@
     <ClCompile Include="fontclass.cpp" />
     <ClCompile Include="fontshaderclass.cpp" />
     <ClCompile Include="modelclass.cpp" />
+    <ClCompile Include="soundclass.cpp" />
     <ClCompile Include="specularlightclass.cpp" />
     <ClCompile Include="specularlightshaderclass.cpp" />
     <ClCompile Include="textclass.cpp" />

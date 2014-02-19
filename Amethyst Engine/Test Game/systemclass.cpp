@@ -4,6 +4,7 @@ SystemClass::SystemClass()
 {
 	m_Input = 0;
 	m_Graphics = 0;
+	m_Sound = 0;
 }
 
 SystemClass::SystemClass(const SystemClass& other)
@@ -49,11 +50,31 @@ bool SystemClass::Initialize()
 		return false;
 	}
 
+	m_Sound = new SoundClass;
+	if(!m_Sound)
+	{
+		return false;
+	}
+
+	result = m_Sound->Initialize(m_hwnd);
+	if(!result)
+	{
+		MessageBox(m_hwnd, L"Could not intiliaze Direct Sound.", L"Error", MB_OK);
+		return false;
+	}
+
 	return true;
 }
 
 void SystemClass::Shutdown()
 {
+	if(m_Sound)
+	{
+		m_Sound->Shutdown();
+		delete m_Sound;
+		m_Sound = 0;
+	}
+
 	if(m_Graphics)
 	{
 		m_Graphics->Shutdown();
