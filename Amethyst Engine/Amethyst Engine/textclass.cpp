@@ -58,19 +58,7 @@ bool TextClass::Initialize(ID3D10Device *device, HWND hwnd, int screenWidth, int
 		return false;
 	}
 
-	result = UpdateSentence(h_sentence1, "Hello", 100, 100, 1.0F, 1.0F, 1.0F);
-	if(!result)
-	{
-		return false;
-	}
-
 	result = InitializeSentence(&h_sentence2, 16, device);
-	if(!result)
-	{
-		return false;
-	}
-
-	result = UpdateSentence(h_sentence2, "Goodbye", 100, 200, 1.0F, 1.0F, 0.0F);
 	if(!result)
 	{
 		return false;
@@ -382,4 +370,24 @@ void TextClass::RenderSentence(ID3D10Device *device, SentenceType *sentence, D3D
 	h_FontShader->Render(device, sentence->indexCount, worldMatrix, h_baseViewMatrix, orthoMatrix, h_Font->GetTexture(), pixelColor);
 
 	return;
+}
+
+bool TextClass::SetRenderCount(int count)
+{
+	char tempString[32];
+	char countString[32];
+	bool result;
+
+	_itoa_s(count, tempString, 10);
+
+	strcpy_s(countString, "Render Count: ");
+	strcat_s(countString, tempString);
+
+	result = UpdateSentence(h_sentence1, countString, 20, 20, 1.0F, 1.0F, 1.0F);
+	if(!result)
+	{
+		return false;
+	}
+
+	return true;
 }

@@ -23,7 +23,10 @@
     <ClInclude Include="fontclass.h" />
     <ClInclude Include="fontshaderclass.h" />
     <ClInclude Include="fpsclass.h" />
+    <ClInclude Include="frustumclass.h" />
     <ClInclude Include="modelclass.h" />
+    <ClInclude Include="modellistclass.h" />
+    <ClInclude Include="positionclass.h" />
     <ClInclude Include="soundclass.h" />
     <ClInclude Include="specularlightclass.h" />
     <ClInclude Include="specularlightshaderclass.h" />
@@ -45,7 +48,10 @@
     <ClCompile Include="fontclass.cpp" />
     <ClCompile Include="fontshaderclass.cpp" />
     <ClCompile Include="fpsclass.cpp" />
+    <ClCompile Include="frustumclass.cpp" />
     <ClCompile Include="modelclass.cpp" />
+    <ClCompile Include="modellistclass.cpp" />
+    <ClCompile Include="positionclass.cpp" />
     <ClCompile Include="soundclass.cpp" />
     <ClCompile Include="specularlightclass.cpp" />
     <ClCompile Include="specularlightshaderclass.cpp" />

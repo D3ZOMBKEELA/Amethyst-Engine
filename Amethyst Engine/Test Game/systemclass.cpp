@@ -4,9 +4,8 @@ SystemClass::SystemClass()
 {
 	m_Input = 0;
 	m_Graphics = 0;
-	m_Fps = 0;
-	m_Cpu = 0;
 	m_Timer = 0;
+	m_Position = 0;
 }
 
 SystemClass::SystemClass(const SystemClass& other)
@@ -52,22 +51,6 @@ bool SystemClass::Initialize()
 		return false;
 	}
 
-	m_Fps = new FpsClass;
-	if(!m_Fps)
-	{
-		return false;
-	}
-
-	m_Fps->Initialize();
-
-	m_Cpu = new CpuClass;
-	if(!m_Cpu)
-	{
-		return false;
-	}
-
-	m_Cpu->Initialize();
-
 	m_Timer = new TimerClass;
 	if(!m_Timer)
 	{
@@ -81,28 +64,29 @@ bool SystemClass::Initialize()
 		return false;
 	}
 
+	m_Position = new PositionClass;
+	if(!m_Position)
+	{
+		return false;
+	}
+
+	return true;
+
 	return true;
 }
 
 void SystemClass::Shutdown()
 {
+	if(m_Position)
+	{
+		delete m_Position;
+		m_Position = 0;
+	}
+
 	if(m_Timer)
 	{
 		delete m_Timer;
 		m_Timer = 0;
-	}
-
-	if(m_Cpu)
-	{
-		m_Cpu->Shutdown();
-		delete m_Cpu;
-		m_Cpu = 0;
-	}
-
-	if(m_Fps)
-	{
-		delete m_Fps;
-		m_Fps = 0;
 	}
 
 	if(m_Graphics)
@@ -164,11 +148,10 @@ void SystemClass::Run()
 
 bool SystemClass::Frame()
 {
-	bool result;
+	bool keyDown, result;
+	float rotationY;
 
 	m_Timer->Frame();
-	m_Fps->Frame();
-	m_Cpu->Frame();
 
 	result = m_Input->Frame();
 	if(!result)
@@ -176,7 +159,17 @@ bool SystemClass::Frame()
 		return false;
 	}
 
-	result = m_Graphics->Frame(m_Fps->GetFps(), m_Cpu->GetCpuPercentage(), m_Timer->GetTime());
+	m_Position->SetFrameTime(m_Timer->GetTime());
+
+	keyDown = m_Input->IsLeftArrowPressed();
+	m_Position->TurnLeft(keyDown);
+
+	keyDown = m_Input->IsRightArrowPressed();
+	m_Position->TurnRight(keyDown);
+
+	m_Position->GetRotation(rotationY);
+
+	result = m_Graphics->Frame(rotationY);
 	if(!result)
 	{
 		return false;
