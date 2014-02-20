@@ -6,7 +6,7 @@
 #include "textclass.h"
 
 const bool FULL_SCREEN = false;
-const bool VSYNC_ENABLED = true;
+const bool VSYNC_ENABLED = true; // Caps the fps at 60 if true else runs at max fps
 const float SCREEN_DEPTH = 1000.0F;
 const float SCREEN_NEAR = 0.1F;
 
@@ -19,7 +19,7 @@ public:
 
 	bool Initialize(int, int, HWND);
 	void Shutdown();
-	bool Frame(int, int);
+	bool Frame(int, int, float);
 	bool Render();
 
 private:

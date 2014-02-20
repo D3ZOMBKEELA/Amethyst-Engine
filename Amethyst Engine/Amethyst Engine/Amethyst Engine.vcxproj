@@ -16,11 +16,13 @@
     <ClInclude Include="bitmapclass.h" />
     <ClInclude Include="cameraclass.h" />
     <ClInclude Include="colorshaderclass.h" />
+    <ClInclude Include="cpuclass.h" />
     <ClInclude Include="d3dclass.h" />
     <ClInclude Include="diffuselightclass.h" />
     <ClInclude Include="diffuselightshaderclass.h" />
     <ClInclude Include="fontclass.h" />
     <ClInclude Include="fontshaderclass.h" />
+    <ClInclude Include="fpsclass.h" />
     <ClInclude Include="modelclass.h" />
     <ClInclude Include="soundclass.h" />
     <ClInclude Include="specularlightclass.h" />
@@ -28,6 +30,7 @@
     <ClInclude Include="textclass.h" />
     <ClInclude Include="textureclass.h" />
     <ClInclude Include="textureshaderclass.h" />
+    <ClInclude Include="timerclass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ambientlightclass.cpp" />
@@ -35,11 +38,13 @@
     <ClCompile Include="bitmapclass.cpp" />
     <ClCompile Include="cameraclass.cpp" />
     <ClCompile Include="colorshaderclass.cpp" />
+    <ClCompile Include="cpuclass.cpp" />
     <ClCompile Include="d3dclass.cpp" />
     <ClCompile Include="diffuselightclass.cpp" />
     <ClCompile Include="diffuselightshaderclass.cpp" />
     <ClCompile Include="fontclass.cpp" />
     <ClCompile Include="fontshaderclass.cpp" />
+    <ClCompile Include="fpsclass.cpp" />
     <ClCompile Include="modelclass.cpp" />
     <ClCompile Include="soundclass.cpp" />
     <ClCompile Include="specularlightclass.cpp" />
@@ -47,6 +52,7 @@
     <ClCompile Include="textclass.cpp" />
     <ClCompile Include="textureclass.cpp" />
     <ClCompile Include="textureshaderclass.cpp" />
+    <ClCompile Include="timerclass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ambientlight.fx" />

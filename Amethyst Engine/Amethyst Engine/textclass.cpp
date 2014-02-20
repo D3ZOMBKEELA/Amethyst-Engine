@@ -138,6 +138,74 @@ bool TextClass::SetMousePosition(int mouseX, int mouseY)
 	}
 }
 
+bool TextClass::SetFps(int fps)
+{
+	char tempString[16];
+	char fpsString[16];
+	float red, green, blue;
+	bool result;
+
+	if(fps > 9999)
+	{
+		fps = 9999;
+	}
+
+	_itoa_s(fps, tempString, 10);
+
+	strcpy_s(fpsString, "Fps: ");
+	strcat_s(fpsString, tempString);
+
+	if(fps >= 60)
+	{
+		red = 0.0F;
+		green = 1.0F;
+		blue = 0.0F;
+	}
+
+	if(fps < 60)
+	{
+		red = 1.0F;
+		green = 1.0F;
+		blue = 0.0F;
+	}
+
+	if(fps < 30)
+	{
+		red = 1.0F;
+		green = 0.0F;
+		blue = 0.0F;
+	}
+
+	result = UpdateSentence(h_sentence1, fpsString, 20, 20, red, green, blue);
+	if(!result)
+	{
+		return false;
+	}
+
+	return true;
+}
+
+bool TextClass::SetCpu(int cpu)
+{
+	char tempString[16];
+	char cpuString[16];
+	bool result;
+
+	_itoa_s(cpu, tempString, 10);
+
+	strcpy_s(cpuString, "Cpu: ");
+	strcat_s(cpuString, tempString);
+	strcat_s(cpuString, "%");
+
+	result = UpdateSentence(h_sentence2, cpuString, 20, 40, 0.0F, 1.0F, 0.0F);
+	if(!result)
+	{
+		return false;
+	}
+
+	return true;
+}
+
 bool TextClass::InitializeSentence(SentenceType** sentence, int maxLength, ID3D10Device *device)
 {
 	VertexType *vertices;

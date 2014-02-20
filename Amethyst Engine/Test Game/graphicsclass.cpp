@@ -84,11 +84,17 @@ void GraphicsClass::Shutdown()
 	return;
 }
 
-bool GraphicsClass::Frame(int mouseX, int mouseY)
+bool GraphicsClass::Frame(int fps, int cpu, float frameTime)
 {
 	bool result;
 
-	result = m_Text->SetMousePosition(mouseX, mouseY);
+	result = m_Text->SetFps(fps);
+	if(!result)
+	{
+		return false;
+	}
+
+	result = m_Text->SetCpu(cpu);
 	if(!result)
 	{
 		return false;
